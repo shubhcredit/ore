@@ -13,13 +13,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ShubhCredit\\Ore\\Providers\\OreProvider"
+                "Shubhcredit\\Ore\\Providers\\OreProvider"
             ]
         }
     },
     "authors": [
         {
-            "name": "ShubhCredit",
+            "name": "Shubhcredit",
             "email": "shubhcredit2020@gmail.com"
         }
     ]
