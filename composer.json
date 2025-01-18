@@ -1,0 +1,27 @@
+{
+    "name": "shubhcredit/ore",
+    "description": "Ore for the laravel, it make easy and fast development",
+    "autoload": {
+        "psr-4": {
+            "Shubhcredit\\Ore\\": "src/"
+        },
+        "files": [
+            "src/Helpers/OreHelper.php",
+            "scr/Helpers/OreExceptionHandler.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ShubhCredit\\Ore\\OreProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "ShubhCredit",
+            "email": "shubhcredit2020@gmail.com"
+        }
+    ]
+
+}
