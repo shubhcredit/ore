@@ -1,28 +1,36 @@
-# Ore Laravel Package 
+# Laravel Ore Package 
 
-## About Ore API Support Package
+## About Ore Package
 
 This is the package which help to fast API development.
 
 ### How it support ?
-    - By use it less code 
-    - It is very easy to use
-    - Only define the model file
-    - Get resource task automated like
-    - List, save, show, edit, update and delete
+
+- By use it less code 
+- It is very easy to use
+- Only define the model file
+- Get resource task automated like
+- List, save, show, edit, update and delete
 
 ### When we use it ?
-    - Best use of the Ore is automate the crud of your module
-    - For example : some module only want crud on that
-    - Then use it like , category, subcategory, country, city, state, class, department etc  
+
+- Best use of the Ore is automate the crud of your module
+- For example : some module only want crud on that
+- Then use it like , category, subcategory, country, city, state, class, department etc  
 
 ### How to install it ?
-- Very simple to install it using the composser
-- After intall verify by hit the api route as 
+
+- Very simple to install it using the composer
 ```
-    {domain}/api/ore/up
+    composer require shubhcredit/ore
+```
+- After intall verify by hit the api route as 
+
+```
+ {domain}/api/ore/up
 ```
 - Response will as 
+
 ```
     {
         "Status": true,
@@ -31,8 +39,10 @@ This is the package which help to fast API development.
 ```
 
 ### How to use it ?
+
  - Create migration and model 
  - Then add your Ore property in your model file as 
+
  ```
    public $ore=[
         ['name'=>'name','component'=>'text','required'=>'*','orevl'=>"required|unique:categories,name"],

@@ -7,7 +7,7 @@
         },
         "files": [
             "src/Helpers/OreHelper.php",
-            "scr/Helpers/OreExceptionHandler.php"
+            "src/Helpers/OreExceptionHandler.php"
         ]
     },
     "extra": {
