@@ -13,7 +13,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ShubhCredit\\Ore\\OreProvider"
+                "ShubhCredit\\Ore\\Providers\\OreProvider"
             ]
         }
     },
