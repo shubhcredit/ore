@@ -53,23 +53,58 @@ function getOreOf($position = null){
 }
 
 
-    //------------------------FOR IMAGE UPLOAD AND DELETE----MEANS REPLACE--------------
-    function my_image_file_replace($image,$folder,$old_image=null){
-        // $fname = rand(00, 99) . '-' . $image->getClientOriginalName();
-        // $fname= strToLower(str_replace(' ', '-', $fname));
-        $fname = rand(11111111, 99999900) . '.' . $image->getClientOriginalExtension();
-        $image->storeAs($folder.'/', $fname);
+//------------------------FOR IMAGE UPLOAD AND DELETE----MEANS REPLACE--------------
+function my_image_file_replace($image,$folder,$old_image=null){
+    // $fname = rand(00, 99) . '-' . $image->getClientOriginalName();
+    // $fname= strToLower(str_replace(' ', '-', $fname));
+    $fname = rand(11111111, 99999900) . '.' . $image->getClientOriginalExtension();
+    $image->storeAs($folder.'/', $fname);
 
-        if($fname && Storage::exists($folder.'/'.$old_image)){
-            Storage::delete($folder.'/'.$old_image);
-        }
-        return $fname;
+    if($fname && Storage::exists($folder.'/'.$old_image)){
+        Storage::delete($folder.'/'.$old_image);
     }
+    return $fname;
+}
 
-   // -----------------------------FOR IMAGE DELETE-----------------------------------------
-   function my_image_file_delete($image,$folder){
+// -----------------------------FOR IMAGE DELETE-----------------------------------------
+function my_image_file_delete($image,$folder){
     if(Storage::exists($folder.'/'.$image)){
         Storage::delete($folder.'/'.$image);
     }
     return true;
 }
+
+function getOreAction($ore_model)
+{
+    $ore_actions = [
+        'view' =>  true,
+        'create' => true,
+        'save' => true,
+        'edit' => true,
+        'update' => true,
+        'delete' => false
+    ];
+
+    foreach ($ore_actions as $key => $val) {
+        $method = "oreCan" . ucfirst($key);
+        if (method_exists($ore_model, $method)) {
+            $ore_actions[$key] = $ore_model->{$method}();
+        }
+    }
+    return $ore_actions;
+}
+
+function filterMethodsByPrefix($class_object, $prifix) {
+    $methods = get_class_methods($class_object);
+    $filtered_methods = [];
+
+    foreach ($methods as $method) {
+        if (strpos($method, 'oreCan') === 0) {
+            $filtered_methods[] = $method;
+        }
+    }
+    return $filtered_methods;
+}
+
+
+

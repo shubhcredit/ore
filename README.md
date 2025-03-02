@@ -86,5 +86,45 @@ This is the package which help to fast API development.
 
 ### Note : 
 - ore prefix is mendetory in the route
- 
 
+## How to use permission ?
+Very simple to use the permission in the ore package 
+
+### Ore gave these permission as 
+
+```
+ "ore_action": {
+        "view": true,
+        "create": true,
+        "save": true,
+        "edit": true,
+        "update": true,
+        "delete": false
+    }
+```
+This key will available in each API response which is use on frontend creation 
+
+### Use of this permission 
+- __*view*__  denote to view 
+- __*create*__ denote to get meta info to make the create form
+- __*save*__ denote to save the form data
+- __*edit*__ denote to get meta info and data to make edit form
+- __*update*__ denote to update form data
+- __*delete*__ denote to delete the data 
+
+### Define the permission 
+To define the permission make the method in the model file ore will automatically fetch, follow these step to define the method :-
+
+1. Use 'oreCan' prifix in the method name of permission 
+    for example view permission then method name will be as 'oreCanView'.
+2. Function have not parameter
+3. Function return bool i.e. ture/false
+
+Take an example as
+```
+    public function oreCanView(){
+        //@MAKE::you code here
+        return true;
+    }
+```
+__Note ::__ Defult value of the all permission is ture until user defined method overwrite it. 
